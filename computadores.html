@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Computadores - Meu Blog Tech</title>
+        <link rel="stylesheet" href="style/style.css">
+    </head>
+
+    <body data-categoria="computadores">
+        <header>
+            <h1>Computadores</h1>
+            <nav>
+                <div class="tema-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="modoEscuro">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="texto-toggle">Desativar modo escuro</span>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="celulares.html">Celulares</a></li>
+                        <li><a href="computadores.html">Computadores</a></li>
+                        <li><a href="Games.html">Games</a></li>
+                        <li><a href="404.html">Estudos</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="barra-pesquisa">
+            <input type="text" id="campoPesquisa" placeholder="Pesquisar...">
+            <button id="botaoPesquisa">🔍</button>
+        </div>
+
+        <div id="resultados"></div>
+
+        <main>
+            <center><h1>Confira As Últimas Postagens Sobre Computadores!</h1></center>
+        </main>
+
+        <div id="notificacao" class="notificacao"></div>
+        <div id="listaPosts"></div>
+        <div id="popupAviso" class="popup-aviso"></div>
+
+        <script src="js/script.js"></script>
+        <footer>
+            <p>&copy; 2026 - Samukah | Todos os direitos reservados</p>
+        </footer>
+    </body>
+</html>

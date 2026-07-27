@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+body {
+    font-family: 'inter', sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #fff;
+    border-bottom: 2px solid #00c4c4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00c4c4;
+}
+
+/* Estilos exclusivos da página 404 */
+.erro-404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.erro-404 h1 {
+    color: #ff4c4c;
+    font-size: 2em;
+}
+
+.erro-404 p {
+    color: #555;
+}
+
+.erro-404 .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #00c4c4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.erro-404 .btn:hover {
+    background-color: #009999;
+}
+
+.erro-img {
+    max-width: 250px;
+    margin-bottom: 20px;
+}
+.erro-404 {
+    display: flex;              /* ativa o flexbox */
+    justify-content: center;    /* centraliza horizontalmente */
+    align-items: center;        /* centraliza verticalmente */
+    height: 100vh;              /* ocupa toda a altura da tela */
+    flex-direction: column;     /* organiza os elementos em coluna */
+    text-align: center;         /* centraliza o texto */
+}
+/* Tema claro */
+body.tema-claro {
+  background-color: #f2f2f2; /* cinza bem claro */
+  color: #000000;
+}
+
+/* Cabeçalho no modo claro */
+body.tema-claro header {
+  background-color: #d9d9d9; /* cinza um pouco mais escuro */
+  color: #00c4c4; /* mantém o destaque do tema */
+  border-bottom: 2px solid #00c4c4;
+}
+
+/* Artigos no modo claro */
+body.tema-claro #listaPosts article {
+  background-color: #f5f5f5; /* cinza suave */
+  color: #222;               /* texto escuro, mas não preto puro */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Links do menu no modo claro */
+body.tema-claro nav ul li a {
+  color: #333; /* texto escuro para bom contraste */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+body.tema-claro nav ul li a:hover {
+  color: #00c4c4; /* mantém o efeito hover */
+}
+/* Links do menu */
+nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00c4c4;                  /* efeito hover */
+}
+
+/* Cabeçalho no modo escuro */
+body.tema-escuro header {
+  background-color: #1e1e1e; /* volta ao tom escuro */
+  color: #00c4c4; /* mantém o destaque turquesa */
+  border-bottom: 2px solid #00c4c4;
+}
+
+/* Links do menu no modo escuro */
+body.tema-escuro nav ul li a {
+  color: #e0e0e0; /* texto claro para contraste */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+body.tema-escuro nav ul li a:hover {
+  color: #00c4c4; /* mantém o efeito hover */
+}
+
+/* Posts */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    line-height: 1.6;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+
+
+/* Estilo da chave */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Quando ativado */
+input:checked + .slider {
+  background-color: #00c4c4;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+nav ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease; /* suaviza a mudança */
+}
+
+nav ul li a:hover {
+  color: #00c4c4;        /* muda a cor ao passar o mouse */
+  transform: scale(1.05); /* leve aumento para destacar */
+}
+nav ul li a {
+  position: relative;
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;              /* distância da linha em relação ao texto */
+  width: 0%;
+  height: 2px;
+  background-color: #00c4c4; /* cor da linha */
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #00c4c4;            /* muda a cor do texto */
+}
+
+nav ul li a:hover::after {
+  width: 100%;               /* anima a linha expandindo */
+}
+#novoPost {
+  position: fixed;               /* fica flutuando na tela */
+  bottom: 20px;                  /* distância do rodapé */
+  left: 20px;                   /* distância da lateral */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;            /* formato redondo */
+  background-color: #00c4c4;     /* cor principal */
+  color: white;
+  font-size: 32px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;                 /* garante que fique acima de tudo */
+}
+
+/* Efeito hover */
+#novoPost:hover {
+  background-color: #009999;
+  transform: scale(1.1);
+}
+
+/* Tooltip personalizado */
+#novoPost::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 70px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Mostra o tooltip ao passar o mouse */
+#novoPost:hover::after {
+  opacity: 1;
+}
+.popup {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup-content {
+  background-color: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content input,
+.popup-content textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.popup-content button {
+  background-color: #00c4c4;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.popup-content button:hover {
+  background-color: #009999;
+}
+.excluirPost {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.excluirPost:hover {
+  background-color: #cc0000;
+}
+
+/* Campo de categoria */
+#categoria {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #00c4c4;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#categoria:focus {
+  outline: none;
+  border-color: #009999;
+  box-shadow: 0 0 5px rgba(0, 196, 196, 0.5);
+}
+#categoria {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #00c4c4;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  cursor: pointer;
+  display: block; /* força a exibição */
+}
+.barra-pesquisa {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+#campoPesquisa {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #00c4c4;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+#campoPesquisa:focus {
+  border-color: #009999;
+  box-shadow: 0 0 5px rgba(0, 196, 196, 0.5);
+}
+
+/* Popup de aviso */
+.popup-aviso {
+  position: fixed;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: top 0.5s ease;
+  z-index: 3000;
+}
+
+.popup-aviso.mostrar {
+  top: 20px;
+}
+.popup-aviso {
+  position: fixed;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: top 0.5s ease;
+  z-index: 3000;
+}
+
+.popup-aviso.mostrar {
+  top: 20px;
+}
+/* Estilo geral dos artigos */
+#listaPosts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Cada post como um card */
+#listaPosts article {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+#listaPosts article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Títulos e textos */
+#listaPosts h2 {
+  margin-bottom: 10px;
+}
+
+#listaPosts p {
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+/* Botão de excluir */
+.excluirPost {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.excluirPost:hover {
+  background-color: #ff1744;
+}
+main, #listaPosts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+/* Títulos coloridos por categoria */
+article[data-categoria="celulares"] h2 {
+  color: #00BCD4;
+  text-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
+}
+
+article[data-categoria="computadores"] h2 {
+  color: #4CAF50;
+  text-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+article[data-categoria="games"] h2 {
+  color: #9C27B0;
+  text-shadow: 0 0 8px rgba(156, 39, 176, 0.5);
+}
+/* Regra geral para imagens */
+img {
+  max-width: 100%;   /* ocupa toda a largura disponível */
+  height: auto;      /* mantém proporção */
+  border-radius: 10px;
+}
+
+/* Imagens dos posts */
+.post-img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Galeria */
+.galeria {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.imagem-principal img {
+  width: 100%;        /* ocupa toda a largura do container */
+  max-width: 400px;   /* limite para não estourar */
+  height: auto;       /* mantém proporção */
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.miniaturas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;  /* miniaturas podem ser cortadas */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mais-imagens {
+  width: 80px;
+  height: 80px;
+  background-color: #00c4c4;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.modal {
+  display: none;              /* escondido por padrão */
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-conteudo {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.fechar {
+  position: absolute;
+  top: 20px; right: 40px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
