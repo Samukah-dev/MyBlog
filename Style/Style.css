@@ -586,3 +586,22 @@ img {
   font-size: 40px;
   cursor: pointer;
 }
+
+/* Cards da listagem e página da notícia */
+#listaPosts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); align-items: stretch; }
+#listaPosts article { padding: 0; overflow: hidden; position: relative; }
+.post-card-link { color: inherit; text-decoration: none; display: block; height: 100%; }
+.post-capa { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0; }
+.sem-capa { display: grid; place-items: center; background: #333; color: #ddd; }
+.post-card-conteudo { padding: 16px; }
+.post-card h2 { margin: 8px 0; font-size: 1.2rem; }
+.post-card p, .post-meta { color: #aaa; font-size: .9rem; }
+.post-categoria { color: #00c4c4; font-weight: 700; font-size: .85rem; }
+.post-card .excluirPost { position: absolute; right: 12px; bottom: 12px; }
+.sem-posts { text-align: center; grid-column: 1 / -1; }
+.post-completo { max-width: 850px; margin: 40px auto; padding: 0 20px; align-items: stretch; }
+.post-completo article { width: 100%; }
+.post-completo h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 8px 0; }
+.post-completo h2 { margin-top: 28px; }
+.post-texto { font-size: 1.1rem; line-height: 1.8; }
+.post-imagem { display: block; max-width: 100%; margin: 20px auto; }
