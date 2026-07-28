@@ -6,6 +6,7 @@ import { db } from './firebase.js';
 
 const POSTS = 'posts';
 const POSTS_LEGADOS = 'posts';
+const podeExcluirPosts = true;
 const $ = (selector) => document.querySelector(selector);
 const ui = {
   toggle: $('#modoEscuro'), textoModo: $('.texto-toggle'), novoPost: $('#novoPost'),
@@ -80,6 +81,7 @@ function renderizarPosts(listaDePosts) {
 
   listaDePosts.forEach((post) => {
     const artigo = document.createElement('article');
+    artigo.className = 'post-card';
     artigo.dataset.categoria = (post.categoria || '').toLowerCase();
     const link = document.createElement('a');
     link.className = 'post-card-link';
@@ -91,14 +93,18 @@ function renderizarPosts(listaDePosts) {
     conteudo.className = 'post-card-conteudo';
     conteudo.append(
       elemento('span', post.categoria || 'Sem categoria', 'post-categoria'),
-      elemento('h2', post.manchete || post.titulo || 'Sem título'),
+      elemento('h2', post.manchete || post.titulo || 'Sem tÃ­tulo'),
       elemento('p', formatarCriadoEm(post.criadoEm), 'post-meta'),
     );
     link.append(conteudo);
-    const excluir = elemento('button', 'Excluir', 'excluirPost');
-    excluir.type = 'button';
-    excluir.addEventListener('click', () => excluirPost(post));
-    artigo.append(link, excluir);
+    if (podeExcluirPosts) {
+      const excluir = elemento('button', 'Excluir', 'excluirPost');
+      excluir.type = 'button';
+      excluir.addEventListener('click', () => excluirPost(post));
+      artigo.append(link, excluir);
+    } else {
+      artigo.append(link);
+    }
     ui.lista.append(artigo);
   });
 }
@@ -129,7 +135,7 @@ async function carregarPosts() {
   } catch (erro) {
     console.error('Erro ao carregar posts:', erro);
     renderizarPosts([]);
-    avisar('Não foi possível carregar as postagens. Verifique o Firestore.');
+    avisar('NÃ£o foi possÃ­vel carregar as postagens. Verifique o Firestore.');
   }
 }
 
@@ -164,7 +170,7 @@ async function migrarPostsLegados() {
   try {
     postsLegados = JSON.parse(dadosLegados);
   } catch {
-    console.warn('Os posts salvos localmente não estão em um formato válido.');
+    console.warn('Os posts salvos localmente nÃ£o estÃ£o em um formato vÃ¡lido.');
     return;
   }
   if (!Array.isArray(postsLegados) || !postsLegados.length) return;
@@ -174,8 +180,8 @@ async function migrarPostsLegados() {
     const imagens = await Promise.all((post.imagens || []).map((url, imagemIndice) =>
       enviarImagemLegada(url, `${indice}-${imagemIndice}`)));
     return addDoc(collection(db, POSTS), {
-      manchete: post.manchete || post.titulo || 'Sem título',
-      titulo: post.titulo || 'Sem título',
+      manchete: post.manchete || post.titulo || 'Sem tÃ­tulo',
+      titulo: post.titulo || 'Sem tÃ­tulo',
       conteudo: post.conteudo || '',
       categoria: post.categoria || 'Celulares',
       capa,
@@ -218,20 +224,23 @@ async function criarPost() {
     sucesso('Post salvo com sucesso!');
   } catch (erro) {
     console.error('Erro ao salvar post:', erro);
-    avisar('Não foi possível salvar a postagem. Verifique o Cloudinary e as regras do Firestore.');
+    avisar('NÃ£o foi possÃ­vel salvar a postagem. Verifique o Cloudinary e as regras do Firestore.');
   } finally {
     ui.salvarPost.disabled = false;
   }
 }
 
 async function excluirPost(post) {
+  const confirmar = window.confirm(`Excluir a postagem "${post.manchete || post.titulo}"? Esta aÃ§Ã£o nÃ£o poderÃ¡ ser desfeita.`);
+  if (!confirmar) return;
+
   try {
     await deleteDoc(doc(db, POSTS, post.id));
     await carregarPosts();
-    sucesso('Post excluído com sucesso!');
+    sucesso('Post excluÃ­do com sucesso!');
   } catch (erro) {
     console.error('Erro ao excluir post:', erro);
-    avisar('Não foi possível excluir a postagem.');
+    avisar('NÃ£o foi possÃ­vel excluir a postagem.');
   }
 }
 
@@ -244,9 +253,9 @@ function configurarLista() {
 
 function postNaoEncontrado() {
   if (!ui.completo) return;
-  const aviso = elemento('p', 'Postagem não encontrada. ', 'sem-posts');
-  const voltar = elemento('a', 'Voltar ao início');
-  voltar.href = 'Index.html';
+  const aviso = elemento('p', 'Postagem nÃ£o encontrada. ', 'sem-posts');
+  const voltar = elemento('a', 'Voltar ao inÃ­cio');
+  voltar.href = 'index.html';
   aviso.append(voltar);
   ui.completo.replaceChildren(aviso);
 }
@@ -257,14 +266,14 @@ function renderizarPostCompleto(post) {
   artigo.append(
     elemento('span', post.categoria || 'Sem categoria', 'post-categoria'),
     elemento('h1', post.manchete || post.titulo),
-    elemento('p', `${formatarCriadoEm(post.criadoEm)} · ${post.autor || 'Samukah'}`, 'post-meta'),
+    elemento('p', `${formatarCriadoEm(post.criadoEm)} Â· ${post.autor || 'Samukah'}`, 'post-meta'),
   );
   if (post.capa) artigo.append(imagem(post.capa, post.manchete || post.titulo, 'post-capa'));
   artigo.append(elemento('h2', post.titulo));
   const texto = elemento('p', post.conteudo, 'post-texto');
   texto.style.whiteSpace = 'pre-line';
   artigo.append(texto);
-  (post.imagens || []).forEach((src) => artigo.append(imagem(src, 'Imagem da notícia', 'post-imagem')));
+  (post.imagens || []).forEach((src) => artigo.append(imagem(src, 'Imagem da notÃ­cia', 'post-imagem')));
   ui.completo.replaceChildren(artigo);
 }
 
@@ -286,3 +295,4 @@ configurarTema();
 configurarLista();
 carregarPosts();
 carregarPostCompleto();
+
