@@ -4,10 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notícia | Meu Blog Tech</title>
-  <link rel="stylesheet" href="Style/Style.css">
+  <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <header><h1>Meu Blog Tech</h1><nav><ul><li><a href="Index.html">Início</a></li><li><a href="celulares.html">Celulares</a></li><li><a href="computadores.html">Computadores</a></li><li><a href="Games.html">Games</a></li></ul></nav></header>
+  <header>
+    <h1>Meu Blog Tech</h1>
+    <nav>
+      <div class="tema-toggle">
+        <label class="switch">
+          <input type="checkbox" id="modoEscuro">
+          <span class="slider"></span>
+        </label>
+        <span class="texto-toggle">ativar modo escuro</span>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="celulares.html">Celulares</a></li>
+          <li><a href="computadores.html">Computadores</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="estudos.html">Estudos</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
   <main id="postCompleto" class="post-completo"></main>
   <script type="module" src="js/script.js"></script>
 </body>
