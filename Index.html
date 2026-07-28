@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-      <link rel="stylesheet" href="Style/style.css">
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Meu Blog Tech</title>
-      <link rel="stylesheet" href="style.css"> <!-- Arquivo CSS externo -->
+      
+      <link rel="stylesheet" href="style/style.css"> <!-- Arquivo CSS externo -->
   </head>
   <body>
       <header>
@@ -47,6 +47,9 @@
               <label for="titulo">Título:</label>
               <input type="text" id="titulo" placeholder="Digite o título...">
 
+              <label for="manchete">Manchete:</label>
+              <input type="text" id="manchete" placeholder="Digite a manchete da notícia...">
+
               <label for="conteudo">Conteúdo:</label>
               <textarea id="conteudo" placeholder="Escreva seu post..."></textarea>
 
@@ -57,9 +60,11 @@
                   <option value="Games">Games</option>
               </select>
 
-              <label for="imagem">Imagem:</label>
-              <input type="file" id="imagem" accept="image/*" multiple>
-              <div class="galeria-preview"></div>
+              <label for="imagemCapa">Imagem da Capa:</label>
+              <input type="file" id="imagemCapa" accept="image/*">
+
+               <label for="imagem">Imagens da Notícia:</label>
+               <input type="file" id="imagem" accept="image/*" multiple>
 
               <div id="modal" class="modal">
                   <span class="fechar">&times;</span>
@@ -71,9 +76,9 @@
           </div>
       </div>
 
-      <script src="js/script.js"></script>
+      <script type="module" src="js/script.js"></script>
       <footer>
-          <p>&copy; 2026 - Samukah | Este site está em fase de testes e pode haver erros!</p>
+          <p>&copy; 2026 - Samukah | Todos os direitos reservados</p>
       </footer>
   </body>
 </html>
