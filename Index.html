@@ -1,15 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Meu Blog Tech</title>
-      
-      <link rel="stylesheet" href="style/style.css"> <!-- Arquivo CSS externo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Tech</title>
+    <link rel="stylesheet" href="style/style.css">
   </head>
   <body>
-      <header>
+   <header>
           <h1>Meu Blog Tech</h1>
           <nav>
               <div class="tema-toggle">
@@ -29,56 +27,57 @@
           </nav>
       </header>
 
-      <div class="barra-pesquisa">
-          <input type="text" id="campoPesquisa" placeholder="Pesquisar postagens...">
+    <div class="barra-pesquisa">
+      <input type="text" id="campoPesquisa" placeholder="Pesquisar postagens...">
+    </div>
+
+    <div id="popupAviso" class="popup-aviso">Nenhum resultado encontrado!</div>
+
+    <center><h1>Confira As Últimas Postagens!</h1></center>
+    <div id="listaPosts"></div>
+
+    <button id="novoPost" title="Nova Publicação">+</button>
+
+    <div id="popupPost" class="popup">
+      <div class="popup-content">
+        <h2>Nova Publicação</h2>
+
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" placeholder="Digite o título...">
+
+        <label for="manchete">Manchete:</label>
+        <input type="text" id="manchete" placeholder="Digite a manchete da notícia...">
+
+        <label for="conteudo">Conteúdo:</label>
+        <textarea id="conteudo" placeholder="Escreva seu post..."></textarea>
+
+        <label for="categoria">Categoria:</label>
+        <select id="categoria">
+          <option value="Celulares">Celulares</option>
+          <option value="Computadores">Computadores</option>
+          <option value="Games">Games</option>
+          <option value="Estudos">Estudos</option>
+        </select>
+
+        <label for="imagemCapa">Imagem da Capa:</label>
+        <input type="file" id="imagemCapa" accept="image/*">
+
+        <label for="imagem">Imagens da Notícia:</label>
+        <input type="file" id="imagem" accept="image/*" multiple>
+
+        <div id="modal" class="modal">
+          <span class="fechar">&times;</span>
+          <img class="modal-conteudo" id="imagemModal">
+        </div>
+
+        <button id="salvarPost" type="button">Salvar</button>
+        <button id="fecharPopup" type="button">Fechar</button>
       </div>
+    </div>
 
-      <div id="popupAviso" class="popup-aviso">Nenhum resultado encontrado!</div>
-
-      <center><h1>Confira As Ultimas Postagens!</h1></center>
-      <div id="listaPosts"></div>
-
-      <button id="novoPost" title="Nova Publicação">+</button>
-
-      <div id="popupPost" class="popup">
-          <div class="popup-content">
-              <h2>Nova Publicação</h2>
-
-              <label for="titulo">Título:</label>
-              <input type="text" id="titulo" placeholder="Digite o título...">
-
-              <label for="manchete">Manchete:</label>
-              <input type="text" id="manchete" placeholder="Digite a manchete da notícia...">
-
-              <label for="conteudo">Conteúdo:</label>
-              <textarea id="conteudo" placeholder="Escreva seu post..."></textarea>
-
-              <label for="categoria">Categoria:</label>
-              <select id="categoria">
-                  <option value="Celulares">Celulares</option>
-                  <option value="Computadores">Computadores</option>
-                  <option value="Games">Games</option>
-              </select>
-
-              <label for="imagemCapa">Imagem da Capa:</label>
-              <input type="file" id="imagemCapa" accept="image/*">
-
-               <label for="imagem">Imagens da Notícia:</label>
-               <input type="file" id="imagem" accept="image/*" multiple>
-
-              <div id="modal" class="modal">
-                  <span class="fechar">&times;</span>
-                  <img class="modal-conteudo" id="imagemModal">
-              </div>
-
-              <button id="salvarPost">Salvar</button>
-              <button id="fecharPopup">Fechar</button>
-          </div>
-      </div>
-
-      <script type="module" src="js/script.js"></script>
-      <footer>
-          <p>&copy; 2026 - Samukah | Esse site está em fase de testes e pode haver erros! | V.1.0.1</p>
-      </footer>
+    <script type="module" src="js/script.js"></script>
+    <footer>
+      <p>&copy; 2026 - Samukah | Esse site está em fase de testes e pode haver erros! | V.1.1.1</p>
+    </footer>
   </body>
 </html>
